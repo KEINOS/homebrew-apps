@@ -1,0 +1,21 @@
+# =============================================================================
+#  LinuxBrew Download & Basic Functionality Test on Docker Container
+# =============================================================================
+# - Requirements: docker
+# - How to test:
+#   - All-in-one
+#     docker-compose up
+#   - à-la-carte
+#     docker-compose run go-pallet
+version: "3.9"
+services:
+  go-pallet:
+    build:
+      context: ./.devcontainer
+      dockerfile: ./Dockerfile
+      args:
+        VARIANT: latest
+    volumes:
+      - ./Tests:/workspaces/Tests
+    working_dir: /workspaces/Tests
+    entrypoint: shellspec ./spec/go-pallet_spec.sh
