@@ -3,7 +3,7 @@
 This repo is an archive of Homebrew taps for released apps under [github.com/KEINOS](https://github.com/KEINOS/)' repos.
 
 Repo | Install | Download Status |
-:--: | :-- | :--: |
+:--: | :-- | :-- |
 [go-pallet](https://github.com/KEINOS/go-pallet/) | `brew install KEINOS/apps/go-pallet` | [![go-pallet](https://github.com/KEINOS/homebrew-apps/actions/workflows/go-pallet.yml/badge.svg)](https://github.com/KEINOS/homebrew-apps/actions/workflows/go-pallet.yml)
 [dev-go](https://github.com/KEINOS/dev-go/) | `brew install KEINOS/apps/dev-go-sample` | [![dev-go-sample](https://github.com/KEINOS/homebrew-apps/actions/workflows/dev-go-sample.yml/badge.svg)](https://github.com/KEINOS/homebrew-apps/actions/workflows/dev-go-samples.yml)
 
