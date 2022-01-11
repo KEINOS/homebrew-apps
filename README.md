@@ -1,6 +1,6 @@
-# Homebrew Taps of KEINOS
+# Homebrew Taps of [KEINOS](https://github.com/KEINOS/)
 
-This repo is an archive of Homebrew taps for released apps under [github.com/KEINOS](https://github.com/KEINOS/)' repos.
+This repo is an archive of Homebrew taps for released apps under [github.com/KEINOS/' repos](https://github.com/KEINOS?tab=repositories)'.
 
 Repo | Install | Download Status |
 :--: | :-- | :-- |
