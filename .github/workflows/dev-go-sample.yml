@@ -1,5 +1,5 @@
 # This workflow runs the `brew` download functionality via Docker container.
-name: "go-pallet"
+name: "dev-go-sample"
 
 on:
   workflow_dispatch:
@@ -15,4 +15,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run tests on container
-        run: docker-compose run go-pallet
+        run: docker-compose run dev-go-sample

@@ -1,12 +1,15 @@
 # =============================================================================
 #  LinuxBrew Download & Basic Functionality Test on Docker Container
 # =============================================================================
-# - Requirements: docker
+#  This docker-compose file runs the test script of `shellspec` on a container.
+#
+# - Requirements: docker (docker-compose shuld be included)
 # - How to test:
 #   - All-in-one
-#     docker-compose up
+#     $ docker-compose up
 #   - à-la-carte
-#     docker-compose run go-pallet
+#     $ docker-compose run go-pallet
+#     $ docker-compose run dev-go-sample
 version: "3.9"
 services:
   go-pallet:
@@ -19,3 +22,14 @@ services:
       - ./Tests:/workspaces/Tests
     working_dir: /workspaces/Tests
     entrypoint: shellspec ./spec/go-pallet_spec.sh
+
+  dev-go-sample:
+    build:
+      context: ./.devcontainer
+      dockerfile: ./Dockerfile
+      args:
+        VARIANT: latest
+    volumes:
+      - ./Tests:/workspaces/Tests
+    working_dir: /workspaces/Tests
+    entrypoint: shellspec ./spec/dev-go-sample_spec.sh
