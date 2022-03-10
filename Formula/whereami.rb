@@ -5,11 +5,11 @@
 class Whereami < Formula
   desc "This is a command line utility that prints the current global/public IP address."
   homepage "https://github.com/KEINOS/whereami/"
-  version "1.0.1-beta"
+  version "1.0.1-beta2"
 
   on_macos do
-    url "https://github.com/KEINOS/whereami/releases/download/v1.0.1-beta/whereami_1.0.1-beta_macOS_all.zip", :using => CurlDownloadStrategy
-    sha256 "eb8e56cb897135400f72cd8c84616e9a93de69ef538358f2711884769e15d62c"
+    url "https://github.com/KEINOS/whereami/releases/download/v1.0.1-beta2/whereami_1.0.1-beta2_macOS_all.zip", :using => CurlDownloadStrategy
+    sha256 "c80ce3fb4ff879e8a51e0582dd0a540ea0e025fca3a7054116be5536471b8af6"
 
     def install
       bin.install "whereami"
@@ -17,25 +17,25 @@ class Whereami < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/KEINOS/whereami/releases/download/v1.0.1-beta/whereami_1.0.1-beta_Linux_armv6.tar.gz", :using => CurlDownloadStrategy
-      sha256 "a55916c19b01e18c8c0b6aeb4e8abd80ed35740eefe597ae2542eadcfa1e23e5"
-
-      def install
-        bin.install "whereami"
-      end
-    end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/KEINOS/whereami/releases/download/v1.0.1-beta/whereami_1.0.1-beta_Linux_arm64.tar.gz", :using => CurlDownloadStrategy
-      sha256 "6978aed646775c073768419e37933b2630a18a27e1a49a4b04ca0a793536f158"
+      url "https://github.com/KEINOS/whereami/releases/download/v1.0.1-beta2/whereami_1.0.1-beta2_Linux_arm64.tar.gz", :using => CurlDownloadStrategy
+      sha256 "7603b73c758a455b66023ee3d03dfb08e01908929cd3bfddca1e0b79db3c7912"
 
       def install
         bin.install "whereami"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/KEINOS/whereami/releases/download/v1.0.1-beta/whereami_1.0.1-beta_Linux_x86_64.tar.gz", :using => CurlDownloadStrategy
-      sha256 "e106cfce70e7d7cd4031f76163fe751b69a099371e002a7f7118e1605043705d"
+      url "https://github.com/KEINOS/whereami/releases/download/v1.0.1-beta2/whereami_1.0.1-beta2_Linux_x86_64.tar.gz", :using => CurlDownloadStrategy
+      sha256 "c4fe056f48c84db0e501ead82273f4b526ce7d3da3643edac4656407e0790862"
+
+      def install
+        bin.install "whereami"
+      end
+    end
+    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+      url "https://github.com/KEINOS/whereami/releases/download/v1.0.1-beta2/whereami_1.0.1-beta2_Linux_armv6.tar.gz", :using => CurlDownloadStrategy
+      sha256 "12115c991e120f623b8a7e7869d93028eaf0cb9ff6f9ce25e196bc6968a02160"
 
       def install
         bin.install "whereami"
