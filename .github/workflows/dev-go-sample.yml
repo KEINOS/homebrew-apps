@@ -11,8 +11,24 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
     steps:
       - uses: actions/checkout@v2
-      - name: Run tests on container
+
+      - name: Run tests on Linux via container
+        if: runner.os == 'Linux'
         run: docker-compose run dev-go-sample
+
+      - name: Run tests on macOS
+        if: runner.os == 'macOS'
+        run: |
+          : # Install shellspec
+          brew update
+          brew install shellspec/shellspec/shellspec
+          shellspec -v
+          : # Run test
+          cd Tests && \
+          shellspec ./spec/dev-go-sample_spec.sh

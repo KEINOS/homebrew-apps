@@ -3,10 +3,11 @@
 Describe 'whereami'
   # Download Test
   It 'should success on install via brew'
-    When call brew install KEINOS/apps/whereami
+    When call brew install --verbose KEINOS/apps/whereami
     The status should be success
     The stderr should include "Tapping keinos/apps"
-    The output should include "🍺  /home/linuxbrew/.linuxbrew/Cellar/whereami"
+    The output should include "🍺"
+    The output should include "/Cellar/whereami"
   End
 
   # Smoke Test

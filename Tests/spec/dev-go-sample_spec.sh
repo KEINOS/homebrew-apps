@@ -3,10 +3,11 @@
 Describe 'dev-go-sample'
   # Download Test
   It 'should success on install via brew'
-    When call brew install KEINOS/apps/dev-go-sample
+    When call brew install --verbose KEINOS/apps/dev-go-sample
     The status should be success
     The stderr should include "Tapping keinos/apps"
-    The output should include "🍺  /home/linuxbrew/.linuxbrew/Cellar/dev-go-sample"
+    The output should include "🍺"
+    The output should include "/Cellar/dev-go-sample"
   End
 
   # Smoke Test
