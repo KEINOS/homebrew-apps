@@ -1,7 +1,8 @@
 # =============================================================================
 #  LinuxBrew Download & Basic Functionality Test on Docker Container
 # =============================================================================
-#  This docker-compose file runs the test script of `shellspec` on a container.
+#  This docker-compose file downloads the released binaries and runs the test
+#  script via `shellspec` on a container.
 #
 # - Requirements: docker (docker-compose shuld be included)
 # - How to test:
