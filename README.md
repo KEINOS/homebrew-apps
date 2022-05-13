@@ -4,6 +4,7 @@ This repo is an archive of Homebrew taps for released apps under [github.com/KEI
 
 Repo | Install | Download Test Status |
 :--: | :-- | :-- |
+[genrawid](https://github.com/KEINOS/go-genrawid) |`brew install KEINOS/apps/genrawid` | [![genrawid](https://github.com/KEINOS/homebrew-apps/actions/workflows/genrawid.yml/badge.svg)](https://github.com/KEINOS/homebrew-apps/actions/workflows/genrawid.yml)|
 [whereami](https://github.com/KEINOS/whereami) | `brew install KEINOS/apps/whereami` |[![whereami](https://github.com/KEINOS/homebrew-apps/actions/workflows/whereami.yml/badge.svg)](https://github.com/KEINOS/homebrew-apps/actions/workflows/whereami.yml)|
 [go-pallet](https://github.com/KEINOS/go-pallet/) | `brew install KEINOS/apps/go-pallet` | [![go-pallet](https://github.com/KEINOS/homebrew-apps/actions/workflows/go-pallet.yml/badge.svg)](https://github.com/KEINOS/homebrew-apps/actions/workflows/go-pallet.yml)
 [dev-go](https://github.com/KEINOS/dev-go/) | `brew install KEINOS/apps/dev-go-sample` | [![dev-go-sample](https://github.com/KEINOS/homebrew-apps/actions/workflows/dev-go-sample.yml/badge.svg)](https://github.com/KEINOS/homebrew-apps/actions/workflows/dev-go-samples.yml)
