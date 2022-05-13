@@ -47,3 +47,14 @@ services:
       - ./Tests:/workspaces/Tests
     working_dir: /workspaces/Tests
     entrypoint: shellspec ./spec/whereami_spec.sh
+
+  genrawid:
+    build:
+      context: ./.devcontainer
+      dockerfile: ./Dockerfile
+      args:
+        VARIANT: latest
+    volumes:
+      - ./Tests:/workspaces/Tests
+    working_dir: /workspaces/Tests
+    entrypoint: shellspec ./spec/genrawid_spec.sh
