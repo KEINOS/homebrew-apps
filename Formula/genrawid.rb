@@ -5,11 +5,11 @@
 class Genrawid < Formula
   desc "generate a unique consistent number from the imput as a rawid of SQLite3."
   homepage "https://github.com/KEINOS/go-genrawid/"
-  version "0.0.1-alpha"
+  version "0.0.1"
 
   on_macos do
-    url "https://github.com/KEINOS/go-genrawid/releases/download/v0.0.1-alpha/go-genrawid_0.0.1-alpha_macOS_all.zip", :using => CurlDownloadStrategy
-    sha256 "ff3d353273ea79e97b1bd8b807c73c965df78bd1af07295564dc178d44899b4a"
+    url "https://github.com/KEINOS/go-genrawid/releases/download/v0.0.1/go-genrawid_0.0.1_macOS_all.zip", :using => CurlDownloadStrategy
+    sha256 "39b672b353e4e1872a95f28c27862a3b0c646eb919cfbc8da6b28aced4dfd020"
 
     def install
       bin.install "genrawid"
@@ -18,24 +18,24 @@ class Genrawid < Formula
 
   on_linux do
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/KEINOS/go-genrawid/releases/download/v0.0.1-alpha/go-genrawid_0.0.1-alpha_Linux_armv6.tar.gz", :using => CurlDownloadStrategy
-      sha256 "2f2a71d116ca6f970ba85667c23ac69261c62f9f4a47936998aa29ddabd27d85"
+      url "https://github.com/KEINOS/go-genrawid/releases/download/v0.0.1/go-genrawid_0.0.1_Linux_armv6.tar.gz", :using => CurlDownloadStrategy
+      sha256 "04b7dd59953f757515c102d958aaa6e1514f2099f4fd4a385d8fb5a2de922530"
 
       def install
         bin.install "genrawid"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/KEINOS/go-genrawid/releases/download/v0.0.1-alpha/go-genrawid_0.0.1-alpha_Linux_x86_64.tar.gz", :using => CurlDownloadStrategy
-      sha256 "991eaa51349ef7625a13aac058a14e1c77c03159c837ddc30f32af1d87e40ae0"
+      url "https://github.com/KEINOS/go-genrawid/releases/download/v0.0.1/go-genrawid_0.0.1_Linux_x86_64.tar.gz", :using => CurlDownloadStrategy
+      sha256 "2805bfc3c522a562658f7a8a6cbb84929e8b0a0613fe76566d75073252fe925f"
 
       def install
         bin.install "genrawid"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/KEINOS/go-genrawid/releases/download/v0.0.1-alpha/go-genrawid_0.0.1-alpha_Linux_arm64.tar.gz", :using => CurlDownloadStrategy
-      sha256 "c3f029e3afd9b81e27558e0c1e95080519c5ec49127e6601bb46e5de4be5d8a7"
+      url "https://github.com/KEINOS/go-genrawid/releases/download/v0.0.1/go-genrawid_0.0.1_Linux_arm64.tar.gz", :using => CurlDownloadStrategy
+      sha256 "e60b753c7d00412a48f0a8e5d8983ddf713295d45799588e8a0ba8cf9e11c423"
 
       def install
         bin.install "genrawid"
