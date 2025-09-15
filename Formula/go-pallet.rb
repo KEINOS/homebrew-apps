@@ -5,11 +5,11 @@
 class GoPallet < Formula
   desc "Color pallet extractor from an image."
   homepage "https://github.com/KEINOS/go-pallet/"
-  version "1.0.3"
+  version "1.0.5"
 
   on_macos do
-    url "https://github.com/KEINOS/go-pallet/releases/download/v1.0.3/go-pallet_Darwin_all.zip", using: CurlDownloadStrategy
-    sha256 "37420394a776140a385a9625ab4f697be97b115f1223ff79ae127a571a99ab2c"
+    url "https://github.com/KEINOS/go-pallet/releases/download/v1.0.5/go-pallet_1.0.5_darwin_all.tar.gz", using: CurlDownloadStrategy
+    sha256 "cc3fab55282e310440597f40c159e83bce39d9d28c759a122bbf86944bd499aa"
 
     def install
       bin.install "pallet"
@@ -17,26 +17,23 @@ class GoPallet < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/KEINOS/go-pallet/releases/download/v1.0.3/go-pallet_Linux_x86_64.tar.gz", using: CurlDownloadStrategy
-      sha256 "badae90c0f5386cb070c49a9b49889db2125865bb429f9865da029e650ab2c55"
-
+    if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
+      url "https://github.com/KEINOS/go-pallet/releases/download/v1.0.5/go-pallet_1.0.5_linux_amd64.tar.gz", using: CurlDownloadStrategy
+      sha256 "7e86e0a9a0a57eae09e2e2e013319b85437ec4792ea992613b0c391158b75d79"
       def install
         bin.install "pallet"
       end
     end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/KEINOS/go-pallet/releases/download/v1.0.3/go-pallet_Linux_armv6.tar.gz", using: CurlDownloadStrategy
-      sha256 "8dd9c49dc69d5572bdbb7453b61c3eef89defc3e810333de2a1931b4e49ce9a4"
-
+      url "https://github.com/KEINOS/go-pallet/releases/download/v1.0.5/go-pallet_1.0.5_linux_armv6.tar.gz", using: CurlDownloadStrategy
+      sha256 "0f22de1f6645109554a786dc40ef3fa42ea5559b7392bfea45716909f74380a9"
       def install
         bin.install "pallet"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/KEINOS/go-pallet/releases/download/v1.0.3/go-pallet_Linux_arm64.tar.gz", using: CurlDownloadStrategy
-      sha256 "0de46870c7079c6aa92cbf581981e0edef8d4eb246fdec2982b02047e664c098"
-
+      url "https://github.com/KEINOS/go-pallet/releases/download/v1.0.5/go-pallet_1.0.5_linux_arm64.tar.gz", using: CurlDownloadStrategy
+      sha256 "170cfae43b8fc3f17240ba45781a8b983b0a22dd1e02b18a9f2b692257294911"
       def install
         bin.install "pallet"
       end
