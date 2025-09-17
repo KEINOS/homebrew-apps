@@ -20,7 +20,7 @@ jobs:
 
       - name: Run tests on Linux via container
         if: runner.os == 'Linux'
-        run: docker-compose run go-pallet
+        run: docker compose run go-pallet
 
       - name: Run tests on macOS
         if: runner.os == 'macOS'
