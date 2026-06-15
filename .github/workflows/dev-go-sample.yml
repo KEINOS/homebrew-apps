@@ -20,6 +20,8 @@ jobs:
         run: docker compose run dev-go-sample
       - name: Run tests on macOS
         if: runner.os == 'macOS'
+        env:
+          HOMEBREW_NO_REQUIRE_TAP_TRUST: 1
         run: |
           : # Install shellspec
           brew update
