@@ -14,7 +14,7 @@ FROM homebrew/brew:${VARIANT}
 ENV HOMEBREW_NO_SANDBOX_LINUX=1 \
     HOMEBREW_NO_REQUIRE_TAP_TRUST=1
 
-RUN \
-    brew install shellspec/shellspec/shellspec && \
-    # Smoke test
-    shellspec -v
+RUN brew install shellspec/shellspec/shellspec
+
+# Smoke test
+RUN shellspec -v
