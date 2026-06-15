@@ -5,46 +5,42 @@
 class Gostars < Formula
   desc "Prints the attraction gravity of a Go Package."
   homepage "https://github.com/KEINOS/gostars/"
-  version "0.0.2"
+  version "0.0.3"
 
   on_macos do
-    url "https://github.com/KEINOS/gostars/releases/download/v0.0.2/gostars_0.0.2_macOS_all.zip", :using => CurlDownloadStrategy
-    sha256 "f513e0f0bc492492906b24b2fac0167ffa127667ed03e9a04527472202f8674a"
+    url "https://github.com/KEINOS/gostars/releases/download/v0.0.3/gostars_0.0.3_darwin_all.zip", using: CurlDownloadStrategy
+    sha256 "78f97907f7acc6a71dbaba54609e48dc6d17a8edcd5517d55ab3d3f5540de58d"
 
-    def install
+    define_method(:install) do
       bin.install "gostars"
     end
   end
 
   on_linux do
+    if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
+      url "https://github.com/KEINOS/gostars/releases/download/v0.0.3/gostars_0.0.3_linux_amd64.tar.gz", using: CurlDownloadStrategy
+      sha256 "ae3db29ccd943ce8907ea809d2f66bc8f145374a2f0b7efe6406ec0a3f7e3ed2"
+      define_method(:install) do
+        bin.install "gostars"
+      end
+    end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/KEINOS/gostars/releases/download/v0.0.2/gostars_0.0.2_Linux_armv6.tar.gz", :using => CurlDownloadStrategy
-      sha256 "0042b80c3a477574b331feec297c0f91de6381cfbcd818240e5c6f0ffaff82a8"
-
-      def install
+      url "https://github.com/KEINOS/gostars/releases/download/v0.0.3/gostars_0.0.3_linux_armv6.tar.gz", using: CurlDownloadStrategy
+      sha256 "52bca821117da3048a9d97123088fb398f0a7ac27c1232fc33379ca2b1278f0c"
+      define_method(:install) do
         bin.install "gostars"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/KEINOS/gostars/releases/download/v0.0.2/gostars_0.0.2_Linux_arm64.tar.gz", :using => CurlDownloadStrategy
-      sha256 "644306cd9b031b72d91832f07815fea23e2f1b204daadb60714b40db0538eb31"
-
-      def install
-        bin.install "gostars"
-      end
-    end
-    if Hardware::CPU.intel?
-      url "https://github.com/KEINOS/gostars/releases/download/v0.0.2/gostars_0.0.2_Linux_x86_64.tar.gz", :using => CurlDownloadStrategy
-      sha256 "ceb2ed6ad599f380ec97124c95db291b41d97a95490e9437ac7e0d02e2fe9b9a"
-
-      def install
+      url "https://github.com/KEINOS/gostars/releases/download/v0.0.3/gostars_0.0.3_linux_arm64.tar.gz", using: CurlDownloadStrategy
+      sha256 "ed8172a6d31eab9bc6ea910d25f161bdd6803627b60654462fc0f0685b0c06de"
+      define_method(:install) do
         bin.install "gostars"
       end
     end
   end
 
   test do
-    system "#{bin}/gostars -h
-    "
+    system "#{bin}/gostars -h"
   end
 end
