@@ -1,6 +1,5 @@
 # This workflow runs the `brew` download functionality via Docker container.
 name: "whereami"
-
 on:
   workflow_dispatch:
   push:
@@ -8,7 +7,6 @@ on:
     # Runs at 16:30 UTC on day-of-month 2 (Every day-of-month 2 at AM 01:30 JST, my time)
     # See: https://crontab.guru/
     - cron: '30 16 2 * *'
-
 jobs:
   test:
     runs-on: ${{ matrix.os }}
@@ -16,12 +14,10 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest]
     steps:
-      - uses: actions/checkout@v2
-
+      - uses: actions/checkout@v6
       - name: Run tests on Linux via container
         if: runner.os == 'Linux'
         run: docker compose run whereami
-
       - name: Run tests on macOS
         if: runner.os == 'macOS'
         run: |
