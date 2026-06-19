@@ -99,13 +99,27 @@ jobs:
           HOMEBREW_NO_AUTO_UPDATE: 1
           HOMEBREW_REQUIRE_TAP_TRUST: 1
         run: |
-          brew trust --tap aws/tap
           brew trust --tap azure/bicep
           brew trust --tap shellspec/shellspec
+
+          aws_tap="$(brew --repository aws/tap)"
+          if [[ -d "$aws_tap" ]]; then
+            for formula in aws-sam-cli aws-sam-cli-nightly; do
+              if brew list --formula "$formula" >/dev/null 2>&1; then
+                brew uninstall --force "$formula"
+              fi
+            done
+            brew untap --force aws/tap
+          fi
+
           hashicorp_tap="$(brew --repository hashicorp/tap)"
           if [[ -d "$hashicorp_tap" ]]; then
+            if brew list --formula packer >/dev/null 2>&1; then
+              brew uninstall --force packer
+            fi
             brew untap --force hashicorp/tap
           fi
+
           brew install shellspec/shellspec/shellspec
           shellspec -v
       - name: Install and smoke-test app

@@ -33,7 +33,22 @@ if [[ ! -f "$spec" ]]; then
   exit 1
 fi
 
-brew install --verbose "KEINOS/apps/$app"
+install_log="$(mktemp)"
+trap 'rm -f "$install_log"' EXIT
+
+set +e
+brew install --verbose "KEINOS/apps/$app" 2>&1 | tee "$install_log"
+install_status=${PIPESTATUS[0]}
+set -e
+
+if ((install_status != 0)); then
+  if grep -Fq "Broken pipe" "$install_log"; then
+    echo "Retrying Homebrew install after a transient broken pipe..." >&2
+    brew install --verbose "KEINOS/apps/$app"
+  else
+    exit "$install_status"
+  fi
+fi
 
 if [[ -f "$cask" ]]; then
   brew list --cask "$app" >/dev/null
