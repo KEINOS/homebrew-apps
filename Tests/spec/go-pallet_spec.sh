@@ -3,11 +3,11 @@
 Describe 'go-pallet'
   # Download Test
   It 'should success on install via brew'
-    When call brew install --verbose KEINOS/apps/go-pallet
+    When call brew install --cask --verbose KEINOS/apps/go-pallet
     The status should be success
     The stderr should include "Tapping keinos/apps"
     The output should include "🍺"
-    The output should include "/Cellar/go-pallet"
+    The output should include "/Caskroom/go-pallet"
   End
 
   # Smoke Test
