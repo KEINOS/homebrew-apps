@@ -100,7 +100,13 @@ jobs:
           HOMEBREW_NO_AUTO_UPDATE: 1
           HOMEBREW_REQUIRE_TAP_TRUST: 1
         run: |
+          brew trust --tap aws/tap
+          brew trust --tap azure/bicep
           brew trust --tap shellspec/shellspec
+          hashicorp_tap="$(brew --repository hashicorp/tap)"
+          if [[ -d "$hashicorp_tap" ]]; then
+            brew untap --force hashicorp/tap
+          fi
           brew install shellspec/shellspec/shellspec
           shellspec -v
       - name: Install and smoke-test app
