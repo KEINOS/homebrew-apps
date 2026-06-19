@@ -65,7 +65,12 @@ jobs:
           fi
 
           apps="$(bash Tests/detect-targets.sh "${args[@]}")"
-          count="$(ruby -rjson -e 'puts JSON.parse(ARGV.fetch(0)).length' "$apps")"
+          if [[ "$apps" == "[]" ]]; then
+            count=0
+          else
+            separators="${apps//[^,]/}"
+            count=$((${#separators} + 1))
+          fi
           echo "apps=$apps" >> "$GITHUB_OUTPUT"
           echo "count=$count" >> "$GITHUB_OUTPUT"
   smoke-test:

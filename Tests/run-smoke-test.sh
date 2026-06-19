@@ -33,11 +33,6 @@ if [[ ! -f "$spec" ]]; then
   exit 1
 fi
 
-if brew --repository KEINOS/apps >/dev/null 2>&1; then
-  brew untap --force KEINOS/apps
-fi
-brew tap KEINOS/apps "file://$repo_dir"
-
 brew install --verbose "KEINOS/apps/$app"
 
 if [[ -f "$cask" ]]; then
