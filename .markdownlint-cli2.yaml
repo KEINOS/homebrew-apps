@@ -1,0 +1,5 @@
+config:
+  first-line-heading: false
+  line-length: false
+  no-inline-html: false
+  table-column-style: false
