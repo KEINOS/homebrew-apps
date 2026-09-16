@@ -6,19 +6,19 @@ cask "go-pallet" do
     end
   end
 
-  version "1.0.10"
+  version "1.0.11"
 
   on_macos do
-    sha256 "e0fc6449eeb9f699cf21fa31aff487b992fdf8eb65d94cb5e01b3606f80f39eb"
+    sha256 "fe1a0f514545212b25bd6a62f212c34909a3bb746f771276446d3d8ff901db39"
     url "https://github.com/KEINOS/go-pallet/releases/download/v#{version}/go-pallet_#{version}_darwin_all.tar.gz"
   end
   on_linux do
     on_arm do
-      sha256 "8a976fff044e5fe4b2a4c1eefce29ae0889ff5355ae410dcd77db2928d3bd4b9"
+      sha256 "6ab9ca08e5ce04fa31afcef0f1ceaf62b220e2735f96dfb60a529e7c34adb620"
       url "https://github.com/KEINOS/go-pallet/releases/download/v#{version}/go-pallet_#{version}_linux_arm64.tar.gz"
     end
     on_intel do
-      sha256 "bdc5cec39f2123be0a8dede49ebc8408dc8ad9f6e6b48968ea5b16762e2c6a60"
+      sha256 "196592aa0047865a08c73c11c2c92467ce8a28f3b16e94bd0413320b64b6eaba"
       url "https://github.com/KEINOS/go-pallet/releases/download/v#{version}/go-pallet_#{version}_linux_amd64.tar.gz"
     end
   end
